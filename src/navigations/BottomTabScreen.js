@@ -1,47 +1,65 @@
-import React from "react";
-import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
+//import liraries
+import React, { Component, useState } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import Feed from "../containers/home/screens/Feed";
+import Messages from "../containers/home/screens/Messages";
+import Notifications from "../containers/home/screens/Notifications";
+import Icon from "react-native-ionicons";
+import { HeaderBackground } from "@react-navigation/stack";
 
-import Feed from "../containers/home/Feed";
-import Notifications from "../containers/home/Notifications";
-import Messages from "../containers/home/Messages";
+const Tab = createBottomTabNavigator();
 
-const Tab = createMaterialBottomTabNavigator();
-
+// create a component
 const BottomTabScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Feed"
-      shifting={true}
-      sceneAnimationEnabled={false}
-      activeColor="#fff"
-      inactiveColor="black"
-      barStyle={{ backgroundColor: "#3C99DC" }}>
+      tabBarOptions={{
+        activeTintColor: "white",
+        inactiveTintColor: "black",
+
+        style: {
+          backgroundColor: "tomato",
+        },
+      }}
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color, size }) => {
+          const icons = {
+            Feed: "paper",
+            Messages: "chatboxes",
+            Noti: "notifications",
+          };
+          return <Icon name={icons[route.name]} color={color} size={size} />;
+        },
+      })}>
       <Tab.Screen
         name="Feed"
         component={Feed}
         options={{
-          tabBarIcon: "home-account",
-          tabBarColor: "#3C99DC",
+          title: "Newsfeed",
         }}
       />
       <Tab.Screen
         name="Noti"
         component={Notifications}
         options={{
-          tabBarIcon: "bell-outline",
-          tabBarColor: "tomato",
+          title: "Notifications",
         }}
       />
       <Tab.Screen
         name="Messages"
         component={Messages}
         options={{
-          tabBarIcon: "message-text-outline",
-          tabBarColor: "purple",
+          title: "Messages",
         }}
       />
     </Tab.Navigator>
   );
 };
 
+// define your styles
+const styles = StyleSheet.create({});
+
+//make this component available to the app
 export default BottomTabScreen;

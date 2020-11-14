@@ -1,7 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import FilledButton from "../../components/FilledButton";
+import FilledButton from "../../../components/FilledButton";
 
 // create a component
 const Feed = ({ navigation }) => {

@@ -1,7 +1,8 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-import BottomTabScreen from "../../navigations/BottomTabScreen";
+import BottomTabScreenMaterial from "../../../navigations/BottomTabScreenMaterial";
+import BottomTabScreen from "../../../navigations/BottomTabScreen";
 
 // create a component
 function HomeScreen({ route, navigation }) {
