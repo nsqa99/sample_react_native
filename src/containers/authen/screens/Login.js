@@ -5,7 +5,7 @@ import FilledButton from "../../../components/FilledButton";
 import Label from "../../../components/Label";
 import Input from "../../../components/Input";
 
-function LoginScreen({ navigation }) {
+function Login({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default Login;

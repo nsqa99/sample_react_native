@@ -6,7 +6,7 @@ import Label from "../../../components/Label";
 import Input from "../../../components/Input";
 import IconButton from "../../../components/IconButton";
 
-function RegistrationScreen({ navigation }) {
+function Registration({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   return (
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RegistrationScreen;
+export default Registration;

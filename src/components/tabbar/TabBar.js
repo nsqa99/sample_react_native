@@ -4,13 +4,15 @@ import { View, Text, StyleSheet, Dimensions, Animated } from "react-native";
 import * as shape from "d3-shape";
 import Svg, { Path } from "react-native-svg";
 import StaticTabBar from "./StaticTabBar";
+import { MyColors } from "../../styles/theme";
+import ViewBox from "../ViewBox";
 
 const tabs = [
-  { name: "list-ul" },
-  { name: "envelope-o" },
-  { name: "bell-o" },
-  { name: "comment-o" },
-  { name: "user-o" },
+  { name: "list-ul", component: "Feed" },
+  { name: "envelope-o", component: "Inbox" },
+  { name: "bell-o", component: "Noti" },
+  { name: "comment-o", component: "Message" },
+  { name: "user-o", component: "Profile" },
 ];
 
 const height = 64;
@@ -64,30 +66,24 @@ const center = shape
 const d = `${left} ${center} ${right}`;
 
 // create a component
-const TabBar = () => {
+const TabBar = ({ navigation }) => {
   return (
-    <>
-      <View width={width} height={height}>
-        <AnimatedSvg
-          height={height}
-          width={width * 2}
-          style={{ transform: [{ translateX: value }] }}>
-          <Path d={d} fill="white" />
-        </AnimatedSvg>
-        <View style={StyleSheet.absoluteFill}>
-          <StaticTabBar tabs={tabs} value={value} tabWidth={tabWidth} />
-        </View>
+    <ViewBox baseColor {...{ width, height }}>
+      <AnimatedSvg
+        height={height}
+        width={width * 2}
+        style={{ transform: [{ translateX: value }] }}>
+        <Path d={d} fill="white" />
+      </AnimatedSvg>
+      <View style={StyleSheet.absoluteFill}>
+        <StaticTabBar {...{ navigation, tabs, value, tabWidth }} />
       </View>
-    </>
+    </ViewBox>
   );
 };
 
 // define your styles
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "white",
-  },
-});
+const styles = StyleSheet.create({});
 
 //make this component available to the app
 export default TabBar;

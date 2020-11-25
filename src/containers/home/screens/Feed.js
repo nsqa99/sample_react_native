@@ -2,13 +2,21 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import FilledButton from "../../../components/FilledButton";
+import { MyColors } from "../../../styles/theme";
 
 // create a component
 const Feed = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text>Feed</Text>
-      <FilledButton title="logout" onPress={() => navigation.popToTop()} />
+      <Text
+        style={{
+          fontSize: 30,
+          fontFamily: "Quicksand",
+          color: "#fff",
+          textAlign: "center",
+        }}>
+        Almost before we knew it, we had left the ground.
+      </Text>
     </View>
   );
 };
@@ -19,7 +27,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: MyColors.baseColor,
   },
 });
 

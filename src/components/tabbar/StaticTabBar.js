@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -10,24 +10,22 @@ import {
   TouchableNativeFeedback,
   TouchableWithoutFeedback,
 } from "react-native";
-import IconButton from "./IconButton";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 // create a component
-const StaticTabBar = (props) => {
-  const { width } = Dimensions.get("window");
-  const { tabs, tabWidth, value } = props;
-
-  const values = tabs.map(
-    (tab, index) => new Animated.Value(index === 0 ? 1 : 0)
+const StaticTabBar = ({ tabs, tabWidth, value, navigation }) => {
+  const [width, setWidth] = useState(Dimensions.get("window").width);
+  const [values, setValues] = useState(
+    tabs.map((tab, index) => new Animated.Value(index === 0 ? 1 : 0))
   );
+  // console.log("here1");
 
-  const onPress = (index) => {
+  const onPress = (index, component) => {
     Animated.sequence([
       ...values.map((value) =>
         Animated.timing(value, {
           toValue: 0,
-          duration: 50,
+          duration: 5,
           useNativeDriver: true,
         })
       ),
@@ -43,16 +41,16 @@ const StaticTabBar = (props) => {
           useNativeDriver: true,
         }),
       ]),
-    ]).start();
+    ]).start(() => navigation.navigate(component));
   };
-
   return (
     <View style={styles.container}>
-      {tabs.map(({ name }, key) => {
+      {tabs.map(({ name, component }, key) => {
+        // console.log("here3");
         const activeValue = values[key];
         const translateY = activeValue.interpolate({
           inputRange: [0, 1],
-          outputRange: [tabWidth, 0],
+          outputRange: [-30, -120],
         });
         const opacity = value.interpolate({
           inputRange: [
@@ -62,10 +60,14 @@ const StaticTabBar = (props) => {
           ],
           outputRange: [1, 0, 1],
         });
+        // console.log(JSON.stringify(activeValue));
         return (
           <React.Fragment {...{ key }}>
             <Animated.View style={[styles.tab, { opacity }]}>
-              <TouchableNativeFeedback onPress={() => onPress(key)}>
+              <TouchableNativeFeedback
+                onPress={() => {
+                  onPress(key, component);
+                }}>
                 <Icon name={name} size={25} />
               </TouchableNativeFeedback>
             </Animated.View>
@@ -75,7 +77,8 @@ const StaticTabBar = (props) => {
                 width: tabWidth,
                 height: tabWidth,
                 left: tabWidth * key,
-                bottom: tabWidth / 4,
+                bottom: -100,
+                // bottom: tabWidth,
                 justifyContent: "center",
                 alignItems: "center",
               }}>

@@ -1,6 +1,7 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { MyColors } from "../../../styles/theme";
 
 // create a component
 const Messages = () => {
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: MyColors.baseColor,
   },
 });
 

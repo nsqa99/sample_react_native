@@ -4,10 +4,10 @@ import { View, Text, StyleSheet } from "react-native";
 import { MyColors } from "../../../styles/theme";
 
 // create a component
-const Notifications = () => {
+const Profile = () => {
   return (
     <View style={styles.container}>
-      <Text>Notifications</Text>
+      <Text>Profile</Text>
     </View>
   );
 };
@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default Notifications;
+export default Profile;

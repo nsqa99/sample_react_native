@@ -1,12 +1,10 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import RootStackScreen from "./src/navigations/RootStackScreen";
-
-const RootStack = createStackNavigator();
+import RootStackNavigator from "./src/navigations/RootStackNavigator";
 
 function App() {
-  return <RootStackScreen />;
+  return <RootStackNavigator />;
 }
 
 export default App;

@@ -1,13 +1,13 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import TabBar from "../../../components/TabBar";
+import { MyColors } from "../../../styles/theme";
 
 // create a component
-const Home = () => {
+const Chat = () => {
   return (
     <View style={styles.container}>
-      <TabBar />
+      <Text>Chat</Text>
     </View>
   );
 };
@@ -16,11 +16,11 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "flex-end",
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "tomato",
+    backgroundColor: MyColors.baseColor,
   },
 });
 
 //make this component available to the app
-export default Home;
+export default Chat;
