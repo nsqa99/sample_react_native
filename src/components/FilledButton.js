@@ -1,11 +1,13 @@
 //import liraries
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import React, { Component } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 // create a component
-const FilledButton = ({title, style, onPress}) => {
+const FilledButton = ({ title, onPress, width, height }) => {
   return (
-    <TouchableOpacity style={[styles.loginBtn, style]} onPress={onPress}>
+    <TouchableOpacity
+      style={[styles.loginBtn, { ...{ width, height } }]}
+      onPress={onPress}>
       <Text style={styles.loginBtn_text}>{title.toUpperCase()}</Text>
     </TouchableOpacity>
   );
@@ -15,15 +17,15 @@ const FilledButton = ({title, style, onPress}) => {
 const styles = StyleSheet.create({
   loginBtn: {
     padding: 20,
-    width: '80%',
+    width: "80%",
     marginTop: 30,
-    backgroundColor: '#f2f2f2',
-    color: 'black',
+    backgroundColor: "#f2f2f2",
+    color: "black",
     borderRadius: 8,
   },
 
   loginBtn_text: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 20,
   },
 });
