@@ -1,26 +1,23 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { MyColors } from "../../../styles/theme";
-
+import TextView from "../../../components/TextView";
+import ViewBox from "../../../components/ViewBox";
+import { useSelector } from "react-redux";
 // create a component
 const Messages = () => {
+  const counter = useSelector((state) => state.counter);
   return (
-    <View style={styles.container}>
-      <Text>Messages</Text>
-    </View>
+    <ViewBox flex middle centered baseColor>
+      <TextView white size={25}>
+        Counter Value: {counter}
+      </TextView>
+    </ViewBox>
   );
 };
 
 // define your styles
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: MyColors.baseColor,
-  },
-});
+const styles = StyleSheet.create({});
 
 //make this component available to the app
 export default Messages;
