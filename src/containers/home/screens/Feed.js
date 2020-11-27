@@ -12,17 +12,15 @@ const Feed = () => {
   const counter = useSelector((state) => state.counter);
   const dispatch = useDispatch();
   const handleIncrement = () => {
-    dispatch({
-      type: actions.INCREMENT_COUNTER,
-      payload: counter + 1,
-    });
+    dispatch(
+      actions.counterAction(actions.COUNTER.INCREMENT_COUNTER, counter + 1)
+    );
   };
 
   const handleDecrement = () => {
-    dispatch({
-      type: actions.DECREMENT_COUNTER,
-      payload: counter - 1,
-    });
+    dispatch(
+      actions.counterAction(actions.COUNTER.DECREMENT_COUNTER, counter - 1)
+    );
   };
 
   return (
