@@ -1,11 +1,9 @@
 //import liraries
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { MyColors } from "../../../styles/theme";
 import ViewBox from "../../../components/ViewBox";
 import ProfileHeader from "../elements/ProfileHeader";
 import ProfileBody from "../elements/ProfileBody";
-import ProfileModal from "../elements/ProfileModal";
 
 // create a component
 const Profile = () => {
