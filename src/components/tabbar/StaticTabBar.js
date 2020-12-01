@@ -25,7 +25,7 @@ const StaticTabBar = ({ tabs, tabWidth, value, navigation }) => {
       ...values.map((value) =>
         Animated.timing(value, {
           toValue: 0,
-          duration: 5,
+          duration: 1,
           useNativeDriver: true,
         })
       ),
@@ -37,11 +37,13 @@ const StaticTabBar = ({ tabs, tabWidth, value, navigation }) => {
         }),
         Animated.spring(value, {
           toValue: -width + tabWidth * index,
-
+          // speed: 50,
           useNativeDriver: true,
         }),
       ]),
-    ]).start(() => navigation.navigate(component));
+    ]).start();
+    navigation.navigate(component);
+    //() => navigation.navigate(component)
   };
   return (
     <View style={styles.container}>

@@ -2,25 +2,23 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { MyColors } from "../../../styles/theme";
+import ViewBox from "../../../components/ViewBox";
+import ProfileHeader from "../elements/ProfileHeader";
+import ProfileBody from "../elements/ProfileBody";
+import ProfileModal from "../elements/ProfileModal";
 
 // create a component
 const Profile = () => {
   return (
-    <View style={styles.container}>
-      <Text>Profile</Text>
-    </View>
+    <ViewBox flex baseColor>
+      <ProfileHeader />
+      <ProfileBody />
+    </ViewBox>
   );
 };
 
 // define your styles
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: MyColors.baseColor,
-  },
-});
+const styles = StyleSheet.create({});
 
 //make this component available to the app
 export default Profile;

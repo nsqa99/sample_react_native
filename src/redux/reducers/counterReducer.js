@@ -6,9 +6,9 @@ const initialState = {
 
 export default function counterReducer(state = initialState, action) {
   switch (action.type) {
-    case actions.INCREMENT_COUNTER:
+    case actions.COUNTER.INCREMENT_COUNTER:
       return { ...state, counter: action.payload };
-    case actions.DECREMENT_COUNTER:
+    case actions.COUNTER.DECREMENT_COUNTER:
       return { ...state, counter: action.payload };
     default:
       return state;

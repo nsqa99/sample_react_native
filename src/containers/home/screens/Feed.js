@@ -9,17 +9,23 @@ import * as actions from "../../../redux/actions/counter";
 
 // create a component
 const Feed = () => {
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter.counter);
   const dispatch = useDispatch();
   const handleIncrement = () => {
     dispatch(
-      actions.counterAction(actions.COUNTER.INCREMENT_COUNTER, counter + 1)
+      actions.changeCounterAction(
+        actions.COUNTER.INCREMENT_COUNTER,
+        counter + 1
+      )
     );
   };
 
   const handleDecrement = () => {
     dispatch(
-      actions.counterAction(actions.COUNTER.DECREMENT_COUNTER, counter - 1)
+      actions.changeCounterAction(
+        actions.COUNTER.DECREMENT_COUNTER,
+        counter - 1
+      )
     );
   };
 

@@ -6,7 +6,7 @@ import ViewBox from "../../../components/ViewBox";
 import { useSelector } from "react-redux";
 // create a component
 const Messages = () => {
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter.counter);
   return (
     <ViewBox flex middle centered baseColor>
       <TextView white size={25}>
